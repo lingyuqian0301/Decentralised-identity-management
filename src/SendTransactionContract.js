@@ -11,11 +11,23 @@ async function transferEth() {
 
             // Get the user's active account (first one in the list)
             const accounts = await provider.request({ method: 'eth_accounts' });
+
+            if (!accounts || accounts.length === 0) {
+                alert("No account found. Please ensure MetaMask is connected.");
+                return;
+            }
+
             const sender = accounts[0]; // Sender address
 
-            // Get the recipient address and the amount in ETH from the inputs
-            const recipient = "0xb84343E80427E605A7d4e44A1E2BbF533d6D38fb";
-            const amountInEth = 0.0000003231201;
+            // Set recipient address and amount in ETH
+            const recipient = "0xb84343E80427E605A7d4e44A1E2BbF533d6D38fb"; // Ensure this is valid
+            const amountInEth = 0.01; // Adjust as needed for testing
+
+            // Check if the recipient address is valid
+            if (!recipient || !recipient.startsWith('0x') || recipient.length !== 42) {
+                alert("Please enter a valid recipient address.");
+                return;
+            }
 
             // Ensure both recipient and amount are provided
             if (!recipient || !amountInEth) {
@@ -26,14 +38,15 @@ async function transferEth() {
             // Convert the amount from ETH to Wei (1 ETH = 1e18 Wei)
             const amountInWei = (parseFloat(amountInEth) * 1e18).toString();
 
+            console.log(`Sending ${amountInEth} ETH (${amountInWei} Wei) to ${recipient}`);
+
             // Create the transaction parameters
             const txParams = {
                 from: sender, // MetaMask will prompt the user to approve this account
                 to: recipient, // Recipient address
                 value: amountInWei, // Amount in Wei (ETH to Wei conversion)
-                // Optional gas parameters (MetaMask will calculate if not provided)
-                // gas: '21000', // Gas limit
-                // gasPrice: '20000000000' // Gas price
+                gas: '21000', // Optional gas limit
+                gasPrice: '20000000000' // Optional gas price (20 Gwei)
             };
 
             // Send the transaction
@@ -50,14 +63,16 @@ async function transferEth() {
         }
     } catch (error) {
         console.error('Error sending transaction:', error);
-        alert('Error sending transaction.');
+        alert(`Error sending transaction: ${error.message}`);
     }
 }
 
-const CreateNFTButton = () => {
+const SendTransactionContract = () => {
     return (
-        <button onClick={transferEth}style={{ margin: '20px' }} >Create your own NVDA ID</button>
+        <button onClick={transferEth} style={{ margin: '20px' }}>
+            Create your own Reputation ID
+        </button>
     );
 };
 
-export default CreateNFTButton;
+export default SendTransactionContract;
