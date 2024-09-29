@@ -1,6 +1,19 @@
-# Getting Started with Create React App
+# NFT Identity Management Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a React-based web application for managing NFT (Non-Fungible Token) identities. It was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and includes additional functionality for creating, managing, and visualizing NFT identities.
+
+## Features
+
+1. **Wallet Connection**: Users can connect their Ethereum wallet to the application.
+2. **Identity Creation**: Create new NFT identities with roles, permissions, and expiration times.
+3. **Identity Management**: View and manage created identities.
+4. **QR Code Generation**: Generate QR codes for easy sharing of identity information.
+5. **JSON Download**: Download identity information as a JSON file.
+6. **Transaction Sending**: Send transactions to a smart contract (functionality included but not fully implemented in the provided code).
+
+## Project Structure
+
+The main application logic is contained in the `App.js` file:
 
 ## Available Scripts
 
@@ -39,32 +52,34 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
+## Dependencies
+
+The project uses several key dependencies:
+
+- React: For building the user interface
+- ethers: For Ethereum wallet integration
+- qrcode.react: For generating QR codes
+- web3: For interacting with Ethereum blockchain
+
+For a full list of dependencies, refer to the `package.json` file:
+
 ## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+To learn more about React, check out the [React documentation](https://reactjs.org/).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+For more information about Create React App, visit the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-### Code Splitting
+## Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+For information on deploying this application, see the [deployment section](https://facebook.github.io/create-react-app/docs/deployment) in the Create React App documentation.
 
-### Analyzing the Bundle Size
+## Troubleshooting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+If you encounter issues with `npm run build` failing to minify, refer to this [troubleshooting guide](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify).
 
-### Making a Progressive Web App
+## Additional Components
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+The application includes additional components (not fully visible in the provided code snippets):
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- `ConnectWallet.js`: For handling wallet connection
+- `SendTransactionContract.js`: For sending transactions to a smart contract
