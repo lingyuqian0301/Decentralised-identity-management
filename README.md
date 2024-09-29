@@ -1,85 +1,85 @@
-# NFT Identity Management Application
+# Ethereum Decentralized Identity Management
 
-This project is a React-based web application for managing NFT (Non-Fungible Token) identities. It was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and includes additional functionality for creating, managing, and visualizing NFT identities.
+## Overview
+
+This project is a **React** application for managing decentralized identities on the Ethereum blockchain. It provides features to:
+
+- Connect a wallet
+- Create and manage identities
+- Generate QR codes for each identity
+- Download identity information as JSON files
 
 ## Features
 
-1. **Wallet Connection**: Users can connect their Ethereum wallet to the application.
-2. **Identity Creation**: Create new NFT identities with roles, permissions, and expiration times.
-3. **Identity Management**: View and manage created identities.
-4. **QR Code Generation**: Generate QR codes for easy sharing of identity information.
-5. **JSON Download**: Download identity information as a JSON file.
-6. **Transaction Sending**: Send transactions to a smart contract (functionality included but not fully implemented in the provided code).
+1. **Connect Wallet**: Users can connect their Ethereum wallet to the application.
+2. **Create Identity**: Generate new identities with roles, permissions, and a default status of `active`.
+3. **Download Identity**: Download individual identities in JSON format.
+4. **QR Code Generation**: Show QR codes representing an identity.
+5. **Display Created Identities**: View all created identities, including their role, permissions, status, and expiration time.
 
-## Project Structure
+## Technologies Used
 
-The main application logic is contained in the `App.js` file:
+- **React**: For building the UI.
+- **QRCodeCanvas** from `qrcode.react`: For generating QR codes for the identities.
+- **CSS**: For styling the app (included in `App.css`).
+- **ConnectWallet.js**: A custom component to handle Ethereum wallet connection.
+- **SendTransactionContract.js**: A placeholder for sending transactions (not detailed here).
 
-## Available Scripts
+## How It Works
 
-In the project directory, you can run:
+### 1. Wallet Connection
+- The app uses the `ConnectWallet` component to allow users to connect their Ethereum wallet. The connected account is stored in the `account` state.
 
-### `npm start`
+### 2. Identity Creation
+- Users can create new identities by entering a **role** and **permissions**. 
+- Each identity includes:
+  - A unique `id`.
+  - The input role and permissions.
+  - The `status` is set to `active` by default.
+  - `CreationTime` and `ExpiryTime` are automatically generated, with an expiry time set 1 hour after creation.
+  - `CreatedBy` stores the account address or a "Demo Account" if no wallet is connected.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 3. Displaying Identities
+- All created identities are displayed in a list format, showing the following details:
+  - ID
+  - Role
+  - Permissions
+  - Status
+  - Creation Time
+  - Expiry Time
+  - Created By
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 4. QR Code Generation
+- Each identity can be converted into a QR code using the **QRCodeCanvas** component.
+- The QR code contains the JSON representation of the selected identity.
 
-### `npm test`
+### 5. Download Identity
+- Identities can be downloaded as JSON files. The `downloadIdentity` function creates a download link that allows the user to save the identity in JSON format.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Installation
 
-### `npm run build`
+1. Clone the repository:
+    ```bash
+    git clone <repo_url>
+    cd ethereum-identity-management
+    ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Install dependencies:
+    ```bash
+    npm install
+    ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. Start the application:
+    ```bash
+    npm start
+    ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## How to Use
 
-### `npm run eject`
+1. **Connect Wallet**: Click the **Connect Wallet** button to link your Ethereum wallet.
+2. **Create Identity**: Fill in the **Role** and **Permissions** fields, then click **Create Identity** to generate a new identity.
+3. **View Identities**: Created identities will appear in the list below. You can download any identity or generate a QR code for it.
+4. **Download Identity**: Click the **Download Identity** button to save the identity data in JSON format.
+5. **Show QR Code**: Click the **Show QR Code** button to display the identity as a QR code.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Dependencies
-
-The project uses several key dependencies:
-
-- React: For building the user interface
-- ethers: For Ethereum wallet integration
-- qrcode.react: For generating QR codes
-- web3: For interacting with Ethereum blockchain
-
-For a full list of dependencies, refer to the `package.json` file:
-
-## Learn More
-
-To learn more about React, check out the [React documentation](https://reactjs.org/).
-
-For more information about Create React App, visit the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-## Deployment
-
-For information on deploying this application, see the [deployment section](https://facebook.github.io/create-react-app/docs/deployment) in the Create React App documentation.
-
-## Troubleshooting
-
-If you encounter issues with `npm run build` failing to minify, refer to this [troubleshooting guide](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify).
-
-## Additional Components
-
-The application includes additional components (not fully visible in the provided code snippets):
-
-- `ConnectWallet.js`: For handling wallet connection
-- `SendTransactionContract.js`: For sending transactions to a smart contract
