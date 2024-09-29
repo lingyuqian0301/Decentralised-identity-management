@@ -23,8 +23,10 @@ This project is a **React** application for managing decentralized identities on
 - **QRCodeCanvas** from `qrcode.react`: For generating QR codes for the identities.
 - **CSS**: For styling the app (included in `App.css`).
 - **ConnectWallet.js**: A custom component to handle Ethereum wallet connection.
-- **SendTransactionContract.js**: A placeholder for sending transactions (not detailed here).
-  -**Smart Contract**
+- **SendTransactionContract.js**: A placeholder for sending transactions 
+- **Smart Contract**.: web 3 
+
+
 ## How It Works
 
 ### 1. Wallet Connection
